@@ -37,7 +37,10 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Sign In',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+        title: Text(
+          'Sign In',
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        ),
         backgroundColor: Colors.deepPurple,
         centerTitle: true,
       ),
@@ -57,7 +60,6 @@ class _LoginPageState extends State<LoginPage> {
               Image.asset(
                 'assets/images/yhlogo.PNG',
                 height: 100,
-
               ),
               const SizedBox(height: 30),
               Container(
@@ -124,7 +126,7 @@ class _LoginPageState extends State<LoginPage> {
               //     onPressed: () {
               //       _signInWithGoogle(context);
               //     }),
-              const SizedBox(height: 30),
+              const SizedBox(height: 10),
               Container(
                 alignment: Alignment.center,
                 child: InkWell(
@@ -142,7 +144,9 @@ class _LoginPageState extends State<LoginPage> {
                   },
                 ),
               ),
-              SizedBox(height: 60,),
+              SizedBox(
+                height: 60,
+              ),
               Text(
                 _error,
                 textAlign: TextAlign.center,

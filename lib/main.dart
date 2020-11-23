@@ -25,38 +25,36 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return StreamProvider<User>.value(
       value: AuthenticationService().user,
-    child: MultiProvider(
-    providers: [
-    ChangeNotifierProvider.value(
-    value: Products(),
-    ),
-    ChangeNotifierProvider.value(
-    value: Cart(),
-    ),
-    ChangeNotifierProvider.value(
-    value: Orders(),
-    ),
-    ],
-      child: MaterialApp(
-        title: 'Your Health',
-        theme: ThemeData(
-          primarySwatch: Colors.deepPurple,
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-        ),
-        debugShowCheckedModeBanner: false,
-        home: AuthChecker(),
-    routes: {
-    // ProductDetailScreen.routeName: (ctx) => ProductDetailScreen(),
-    CartScreen.routeName: (ctx) => CartScreen(),
-    OrdersScreen.routeName: (ctx) => OrdersScreen(),
-    UserProductsScreen.routeName: (ctx) => UserProductsScreen(),
-    EditProductScreen.routeName: (ctx) => EditProductScreen(),
-    ShoppingCompletedScreen.routeName: (ctx) =>
-    ShoppingCompletedScreen(),
-    }
-
-    ),
-    ),
+      child: MultiProvider(
+        providers: [
+          ChangeNotifierProvider.value(
+            value: Products(),
+          ),
+          ChangeNotifierProvider.value(
+            value: Cart(),
+          ),
+          ChangeNotifierProvider.value(
+            value: Orders(),
+          ),
+        ],
+        child: MaterialApp(
+            title: 'Your Health',
+            theme: ThemeData(
+              primarySwatch: Colors.deepPurple,
+              visualDensity: VisualDensity.adaptivePlatformDensity,
+            ),
+            debugShowCheckedModeBanner: false,
+            home: AuthChecker(),
+            routes: {
+              // ProductDetailScreen.routeName: (ctx) => ProductDetailScreen(),
+              CartScreen.routeName: (ctx) => CartScreen(),
+              OrdersScreen.routeName: (ctx) => OrdersScreen(),
+              UserProductsScreen.routeName: (ctx) => UserProductsScreen(),
+              EditProductScreen.routeName: (ctx) => EditProductScreen(),
+              ShoppingCompletedScreen.routeName: (ctx) =>
+                  ShoppingCompletedScreen(),
+            }),
+      ),
     );
   }
 }

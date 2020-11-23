@@ -48,7 +48,10 @@ class _SignUpDoctorPageState extends State<SignUpDoctorPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Register As Doctor',style: TextStyle(fontWeight: FontWeight.bold),),
+        title: Text(
+          'Register As Doctor',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
         backgroundColor: Colors.deepPurple,
       ),
       //resizeToAvoidBottomPadding: false,
@@ -370,8 +373,7 @@ class _SignUpDoctorPageState extends State<SignUpDoctorPage> {
                                   });
                                 }),
                             Flexible(
-                              child: Text(
-                                  'I accept terms and conditions.'),
+                              child: Text('I accept terms and conditions.'),
                             ),
                           ],
                         ),

@@ -11,10 +11,11 @@ class Result extends StatelessWidget {
     if (resultScore <= 12) {
       resultText = 'Result: You are not affected with Urinary Tract Infection.';
     } else if (resultScore <= 15) {
-      resultText = 'Result: You have minor chances of affected with Urinary Tract Infection.   ';
+      resultText =
+          'Result: You probably have minor chances of affected with Urinary Tract Infection.   ';
     } else {
       resultText =
-      'Result: You affected with Urinary Tract Infection , try to consult with doctor as soon as possible .';
+          'Result: You are probably affected with Urinary Tract Infection , try to consult with doctor as soon as possible .';
     }
     return resultText;
   }
@@ -47,9 +48,7 @@ class Result extends StatelessWidget {
           Image.asset(
             'assets/images/uti.PNG',
             height: 400,
-
           ),
-
           RaisedButton(
             padding: EdgeInsets.all(8),
             color: Colors.blue,

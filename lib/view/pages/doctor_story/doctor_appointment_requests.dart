@@ -79,6 +79,14 @@ class DoctorAppointmentRequests extends StatelessWidget {
   }
 
   _onAcceptButtonPressed(BuildContext context, Appointment appointment) async {
+    // print("Doctor ID: ${appointment.doctorId}");
+    // Stream<QuerySnapshot> snapshot = FirebaseFirestore.instance
+    //     .collection("doctors")
+    //     .doc(appointment.doctorId)
+    //     .collection("appointments")
+    //     .snapshots();
+    // ;
+    //print("Snapshot: ${snapshot}");
     Map<String, dynamic> data = {
       'patientName': appointment.patientName,
       'doctorName': appointment.doctorName,

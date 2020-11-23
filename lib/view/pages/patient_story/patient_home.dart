@@ -22,6 +22,7 @@ import 'appoinment_home_page.dart';
 import '../../../data/./PatientHomeScreen/data/PatientHomescreenImage.dart';
 import '../../../data/./PatientHomeScreen/config/styles.dart';
 import '../../../data/./PatientHomeScreen/config/palette.dart';
+
 class PatientHome extends StatefulWidget {
   @override
   _PatientHomeState createState() => _PatientHomeState();
@@ -60,24 +61,23 @@ class _PatientHomeState extends State<PatientHome> {
         ),
         resizeToAvoidBottomPadding: false,
         body: CustomScrollView(
-    //physics: ClampingScrollPhysics(),
-    slivers: <Widget>[
-    _buildHeader(),
-    _buildPreventionTips(),
-    _buildYourOwnTest(),//five disease symptomps
-      _buildapoinment(),//apoinmentHomepage
-    _buildChat(),//chatwithappointedDoctors
-      _buildHealthProduct(),//buyinghealthProducts
-      _buildGlobalstats(),//corona status
-      _buildCountryStats(),
-      _buildbmihospitalambulance(), //bmihospitalambulance
-      //countryStatus
-    ],
-    ),
-    //bottomNavigationBar: ,
+          //physics: ClampingScrollPhysics(),
+          slivers: <Widget>[
+            _buildHeader(),
+            _buildPreventionTips(),
+            _buildYourOwnTest(), //five disease symptomps
+            _buildapoinment(), //apoinmentHomepage
+            _buildChat(), //chatwithappointedDoctors
+            _buildHealthProduct(), //buyinghealthProducts
+            _buildGlobalstats(), //corona status
+            _buildCountryStats(),
+            _buildbmihospitalambulance(), //bmihospitalambulance
+            //countryStatus
+          ],
+        ),
+        //bottomNavigationBar: ,
 
-
-  bottomNavigationBar: BottomNavBar(currentIndex: 0),
+        bottomNavigationBar: BottomNavBar(currentIndex: 0),
       ),
     );
   }
@@ -132,179 +132,172 @@ class _PatientHomeState extends State<PatientHome> {
     });
   }
 
-
   //New Build Method
 
-
-SliverToBoxAdapter _buildHeader() {
-  return SliverToBoxAdapter(
-    child: Container(
-      padding: const EdgeInsets.all(20.0),
-      decoration: BoxDecoration(
-        color: Palette.primaryColor,
-        borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(40.0),
-          bottomRight: Radius.circular(40.0),
+  SliverToBoxAdapter _buildHeader() {
+    return SliverToBoxAdapter(
+      child: Container(
+        padding: const EdgeInsets.all(20.0),
+        decoration: BoxDecoration(
+          color: Palette.primaryColor,
+          borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(40.0),
+            bottomRight: Radius.circular(40.0),
+          ),
         ),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Text(
-                'COVID-19',
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 25.0,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ],
-          ),
-          SizedBox(height: 30),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Text(
-                'Are you feeling sick?',
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 22.0,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              SizedBox(height: 10),
-              Text(
-                'If you feel sick with any COVID-19 symptoms, please check by corona symptomps cheaking',
-
-                style: const TextStyle(
-                  color: Colors.white70,
-                  fontSize: 15.0,
-                ),
-              ),
-              SizedBox(height: 30),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  FlatButton.icon(
-
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 10.0,
-                      horizontal: 20.0,
-                    ),
-                    onPressed: () {
-                        Navigator.push(
-                                   context,
-                                   MaterialPageRoute(
-                                    builder: (context) => ChooseLanguage()));
-                                    },
-
-                    color: Colors.red,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30.0),
-                    ),
-                    icon: const Icon(
-                      Icons.question_answer,
-                      color: Colors.white,
-                    ),
-                    label: Text(
-                      'Corona Symptomps Checking',
-                      style: Styles.buttonTextStyle,
-                    ),
-                    textColor: Colors.white,
-                  ),
-                ],
-              ),
-            ],
-          )
-        ],
-      ),
-    ),
-  );
-}
-
-SliverToBoxAdapter _buildPreventionTips() {
-  return SliverToBoxAdapter(
-    child: Container(
-      padding: const EdgeInsets.all(20.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Text(
-            'Prevention Tips',
-            style: const TextStyle(
-              fontSize: 22.0,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-          const SizedBox(height: 20.0),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: prevention
-                .map((e) => Column(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Image.asset(
-                  e.keys.first,
-                  height: 100,
-                ),
-                SizedBox(height: 15),
                 Text(
-                  e.values.first,
+                  'COVID-19',
                   style: const TextStyle(
-                    fontSize: 16.0,
-                    fontWeight: FontWeight.w500,
+                    color: Colors.white,
+                    fontSize: 25.0,
+                    fontWeight: FontWeight.bold,
                   ),
-                  textAlign: TextAlign.center,
-                )
+                ),
               ],
-            ))
-                .toList(),
-          ),
-        ],
-      ),
-    ),
-  );
-}
-
-SliverToBoxAdapter _buildYourOwnTest() {
-  return SliverToBoxAdapter(
-    child: Container(
-      margin: const EdgeInsets.symmetric(
-        vertical: 10.0,
-        horizontal: 20.0,
-      ),
-      padding: const EdgeInsets.all(10.0),
-      height: 150,
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: [Color(0xFFAD9FE4), Palette.primaryColor],
-        ),
-        borderRadius: BorderRadius.circular(20.0),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: <Widget>[
-          Image.asset(
-            'assets/images/own_test.png',
-            height: 100,
-
-          ),
-          FlatButton(
-            color: Colors.black12,
-            onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => PrimaryScreeningPage())
-              );
-            },
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+            ),
+            SizedBox(height: 30),
+            Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-               Text(
+                Text(
+                  'Are you feeling sick?',
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 22.0,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                SizedBox(height: 10),
+                Text(
+                  'If you feel sick with any COVID-19 symptoms, please check by corona symptomps cheaking',
+                  style: const TextStyle(
+                    color: Colors.white70,
+                    fontSize: 15.0,
+                  ),
+                ),
+                SizedBox(height: 30),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    FlatButton.icon(
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 10.0,
+                        horizontal: 20.0,
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ChooseLanguage()));
+                      },
+                      color: Colors.red,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30.0),
+                      ),
+                      icon: const Icon(
+                        Icons.question_answer,
+                        color: Colors.white,
+                      ),
+                      label: Text(
+                        'Corona Symptomps Checking',
+                        style: Styles.buttonTextStyle,
+                      ),
+                      textColor: Colors.white,
+                    ),
+                  ],
+                ),
+              ],
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
+  SliverToBoxAdapter _buildPreventionTips() {
+    return SliverToBoxAdapter(
+      child: Container(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text(
+              'Prevention Tips',
+              style: const TextStyle(
+                fontSize: 22.0,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            const SizedBox(height: 20.0),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: prevention
+                  .map((e) => Column(
+                        children: <Widget>[
+                          Image.asset(
+                            e.keys.first,
+                            height: 100,
+                          ),
+                          SizedBox(height: 15),
+                          Text(
+                            e.values.first,
+                            style: const TextStyle(
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.w500,
+                            ),
+                            textAlign: TextAlign.center,
+                          )
+                        ],
+                      ))
+                  .toList(),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  SliverToBoxAdapter _buildYourOwnTest() {
+    return SliverToBoxAdapter(
+      child: Container(
+        margin: const EdgeInsets.symmetric(
+          vertical: 10.0,
+          horizontal: 20.0,
+        ),
+        padding: const EdgeInsets.all(10.0),
+        height: 150,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Color(0xFFAD9FE4), Palette.primaryColor],
+          ),
+          borderRadius: BorderRadius.circular(20.0),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: <Widget>[
+            Image.asset(
+              'assets/images/own_test.png',
+              height: 100,
+            ),
+            FlatButton(
+              color: Colors.black12,
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => PrimaryScreeningPage()));
+              },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
                     'Primarily 5 Disease Symptoms Checking',
                     style: const TextStyle(
                       color: Colors.white,
@@ -312,304 +305,287 @@ SliverToBoxAdapter _buildYourOwnTest() {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-
-              ],
-            ),
-          )
-        ],
-      ),
-    ),
-  );
-}
-
-SliverToBoxAdapter _buildapoinment() {
-  return SliverToBoxAdapter(
-    child:  Container(
-      margin: const EdgeInsets.symmetric(
-        vertical: 10.0,
-        horizontal: 20.0,
-      ),
-      padding: const EdgeInsets.all(10.0),
-      height: 150,
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: [Color(0xFFAD9FE4), Palette.primaryColor],
+                ],
+              ),
+            )
+          ],
         ),
-        borderRadius: BorderRadius.circular(20.0),
       ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: <Widget>[
-          Image.asset(
-            'assets/images/apoinment.jpg',
-            height: 100,
+    );
+  }
 
-          ),
-          FlatButton(
-            color: Colors.black12,
-            onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => AppoinmentHomePage()));
-            },
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(
-                  'Appointments',
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 12.0,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-
-              ],
-            ),
-          )
-        ],
-      ),
-    ),
-  );
-}
-
-
-SliverToBoxAdapter _buildChat() {
-  return SliverToBoxAdapter(
-    child: Container(
-      margin: const EdgeInsets.symmetric(
-        vertical: 10.0,
-        horizontal: 20.0,
-      ),
-      padding: const EdgeInsets.all(10.0),
-      height: 150,
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: [Color(0xFFAD9FE4), Palette.primaryColor],
+  SliverToBoxAdapter _buildapoinment() {
+    return SliverToBoxAdapter(
+      child: Container(
+        margin: const EdgeInsets.symmetric(
+          vertical: 10.0,
+          horizontal: 20.0,
         ),
-        borderRadius: BorderRadius.circular(20.0),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: <Widget>[
-          Image.asset(
-            'assets/images/chatwithdoctor.PNG',
-            height: 100,
-
+        padding: const EdgeInsets.all(10.0),
+        height: 150,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Color(0xFFAD9FE4), Palette.primaryColor],
           ),
-          FlatButton(
-            color: Colors.black12,
-            onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => ChatWithDoctor()));
-            },
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(
-                  'Chats With Doctor',
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 15.0,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-
-              ],
+          borderRadius: BorderRadius.circular(20.0),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: <Widget>[
+            Image.asset(
+              'assets/images/apoinment.jpg',
+              height: 100,
             ),
-          )
-        ],
+            FlatButton(
+              color: Colors.black12,
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => AppoinmentHomePage()));
+              },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    'Appointments',
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 12.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
       ),
-    ),
-  );
-}
+    );
+  }
+
+  SliverToBoxAdapter _buildChat() {
+    return SliverToBoxAdapter(
+      child: Container(
+        margin: const EdgeInsets.symmetric(
+          vertical: 10.0,
+          horizontal: 20.0,
+        ),
+        padding: const EdgeInsets.all(10.0),
+        height: 150,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Color(0xFFAD9FE4), Palette.primaryColor],
+          ),
+          borderRadius: BorderRadius.circular(20.0),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: <Widget>[
+            Image.asset(
+              'assets/images/chatwithdoctor.PNG',
+              height: 100,
+            ),
+            FlatButton(
+              color: Colors.black12,
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ChatWithDoctor()));
+              },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    'Chats With Doctor',
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 15.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
 
   SliverToBoxAdapter _buildbmihospitalambulance() {
     return SliverToBoxAdapter(
         child: Container(
-          margin: const EdgeInsets.symmetric(
-            vertical: 10.0,
-            horizontal: 20.0,
-          ),
-          padding: const EdgeInsets.all(10.0),
-          height: 130,
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [Color(0xFFAD9FE4), Palette.primaryColor],
-            ),
-            borderRadius: BorderRadius.circular(20.0),
-          ),
-          child: GridView(
-            gridDelegate:
-            SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
-            children: [
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 0.8, vertical: 0.8),
-                color: Palette.primaryColor,
-                child: FlatButton(
-                  color: Colors.black12,
-                  child: Flexible(
-                    child: Column(
-                      children: [
-                        const Spacer(),
-                        Icon(
-                          Icons.calculate,
-                          color: Colors.blue,
-                          size: 24.0,
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Flexible(
-                          child: Text("BMI & FITNESS",
-                              style: TextStyle(color: Colors.white)),
-                        ),
-                      ],
-                    ),
-                  ),
-                  onPressed: () {
-                    //Bmi
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => Bmi()));
-                  },
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 0.8, vertical: 0.8),
-                color: Palette.primaryColor,
-                child: FlatButton(
-                  color: Colors.black12,
-                  child: Flexible(
-                    child: Column(
-                      children: [
-                        const Spacer(),
-                        Icon(
-                          Icons.local_hospital,
-                          color: Colors.blue,
-                          size: 24.0,
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Flexible(
-                            child: Text("Hospital Info",
-                                style: TextStyle(color: Colors.white))),
-                        //const Spacer()
-                      ],
-                    ),
-                  ),
-                  onPressed: () {
-                    //hospital
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Hospitals()));
-                  },
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 0.7, vertical: 0.7),
-                color: Palette.primaryColor,
-                child: FlatButton(
-                  color: Colors.black12,
-                  child: Flexible(
-                    child: Column(
-                      children: [
-                        const Spacer(),
-                        Icon(
-                          Icons.phone,
-                          color: Colors.blue,
-                          size: 24.0,
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Flexible(
-                            child: Padding(
-                              padding: const EdgeInsets.all(.05),
-                              child: Text(
-                                "Ambulance Numbers",
-                                style: TextStyle(color: Colors.white),
-                              ),
-                            )
-                        ),
-                        //const Spacer()
-                      ],
-                    ),
-                  ),
-                  onPressed: () {
-                    //ambulance
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => AmbulancePage()));
-                  },
-                ),
-              ),
-            ],
-          ),
-        )
-    );
-  }
-
-SliverToBoxAdapter _buildHealthProduct() {
-  return SliverToBoxAdapter(
-    child:Container(
       margin: const EdgeInsets.symmetric(
         vertical: 10.0,
         horizontal: 20.0,
       ),
       padding: const EdgeInsets.all(10.0),
-      height: 150,
+      height: 130,
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [Color(0xFFAD9FE4), Palette.primaryColor],
         ),
         borderRadius: BorderRadius.circular(20.0),
       ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: <Widget>[
-          Image.asset(
-            'assets/images/healthproduct.png',
-            height: 100,
-
-          ),
-          FlatButton(
-            color: Colors.black12,
-            onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => ProductsOverviewScreen()));
-            },
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(
-                  'Buy Health Products',
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 15.0,
-                    fontWeight: FontWeight.bold,
-                  ),
+      child: GridView(
+        gridDelegate:
+            SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
+        children: [
+          Container(
+            margin: EdgeInsets.symmetric(horizontal: 0.8, vertical: 0.8),
+            color: Palette.primaryColor,
+            child: FlatButton(
+              color: Colors.black12,
+              child: Flexible(
+                child: Column(
+                  children: [
+                    const Spacer(),
+                    Icon(
+                      Icons.calculate,
+                      color: Colors.blue,
+                      size: 24.0,
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Flexible(
+                      child: Text("BMI & FITNESS",
+                          style: TextStyle(color: Colors.white)),
+                    ),
+                  ],
                 ),
-
-              ],
+              ),
+              onPressed: () {
+                //Bmi
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => Bmi()));
+              },
             ),
-          )
+          ),
+          Container(
+            margin: EdgeInsets.symmetric(horizontal: 0.8, vertical: 0.8),
+            color: Palette.primaryColor,
+            child: FlatButton(
+              color: Colors.black12,
+              child: Flexible(
+                child: Column(
+                  children: [
+                    const Spacer(),
+                    Icon(
+                      Icons.local_hospital,
+                      color: Colors.blue,
+                      size: 24.0,
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Flexible(
+                        child: Text("Hospital Info",
+                            style: TextStyle(color: Colors.white))),
+                    //const Spacer()
+                  ],
+                ),
+              ),
+              onPressed: () {
+                //hospital
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Hospitals()));
+              },
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.symmetric(horizontal: 0.7, vertical: 0.7),
+            color: Palette.primaryColor,
+            child: FlatButton(
+              color: Colors.black12,
+              child: Flexible(
+                child: Column(
+                  children: [
+                    const Spacer(),
+                    Icon(
+                      Icons.phone,
+                      color: Colors.blue,
+                      size: 24.0,
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Flexible(
+                        child: Padding(
+                      padding: const EdgeInsets.all(.05),
+                      child: Text(
+                        "Ambulance Numbers",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    )),
+                    //const Spacer()
+                  ],
+                ),
+              ),
+              onPressed: () {
+                //ambulance
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => AmbulancePage()));
+              },
+            ),
+          ),
         ],
       ),
-    ),
+    ));
+  }
 
-  );
-}
+  SliverToBoxAdapter _buildHealthProduct() {
+    return SliverToBoxAdapter(
+      child: Container(
+        margin: const EdgeInsets.symmetric(
+          vertical: 10.0,
+          horizontal: 20.0,
+        ),
+        padding: const EdgeInsets.all(10.0),
+        height: 150,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Color(0xFFAD9FE4), Palette.primaryColor],
+          ),
+          borderRadius: BorderRadius.circular(20.0),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: <Widget>[
+            Image.asset(
+              'assets/images/healthproduct.png',
+              height: 100,
+            ),
+            FlatButton(
+              color: Colors.black12,
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => ProductsOverviewScreen()));
+              },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    'Buy Health Products',
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 15.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
 // SliverToBoxAdapter _buildBmi() {
 //   return SliverToBoxAdapter(
 //     child: Center(
@@ -625,17 +601,17 @@ SliverToBoxAdapter _buildHealthProduct() {
 //buildGlobal Covid status
   SliverToBoxAdapter _buildGlobalstats() {
     return SliverToBoxAdapter(
-      child:    Card(
+      child: Card(
         elevation: 5,
         child: Padding(
           padding: const EdgeInsets.all(20.0),
           child: !_isDataLoaded
               ? Center(child: CircularProgressIndicator())
               : PieChartWidget(
-            label: 'Global Stats',
-            dataMap: _covidData,
-            colorList: _colorList,
-          ),
+                  label: 'Global Stats',
+                  dataMap: _covidData,
+                  colorList: _colorList,
+                ),
         ),
       ),
     );
@@ -667,8 +643,6 @@ SliverToBoxAdapter _buildHealthProduct() {
   //   );
   // }
 
-
-
   SliverToBoxAdapter _buildCountryStats() {
     return SliverToBoxAdapter(
       child: Container(
@@ -690,15 +664,12 @@ SliverToBoxAdapter _buildHealthProduct() {
             Image.asset(
               'assets/images/countrycovid.png',
               height: 50,
-
             ),
             FlatButton(
               color: Colors.black12,
               onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => CovidLocalStat()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => CovidLocalStat()));
               },
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -712,7 +683,6 @@ SliverToBoxAdapter _buildHealthProduct() {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-
                 ],
               ),
             )
@@ -721,6 +691,4 @@ SliverToBoxAdapter _buildHealthProduct() {
       ),
     );
   }
-
-
 }

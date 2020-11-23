@@ -8,17 +8,18 @@ class Result extends StatelessWidget {
 
   String get resultPhrase {
     String resultText;
-    if (resultScore <= 70) {
-      resultText = 'আপনার করোনা সংক্রামন হওয়ার সম্ভবনা খুব কম ।   Result: Your chances of getting a corona infection are very low';
-    } else if (resultScore <= 75) {
+    if (resultScore <= 50) {
       resultText =
-      'আপনার করোনা সংক্রামন  হওয়ার সম্ভবনা খুব বেশি না তবে অবশ্যাই ৪৮ ঘন্টা পর্যবেক্ষণ এ থাকবেন। Result: Your coronary heart disease is not very likely to be, but of course, 48 hours of observation';
-    } else if (resultScore <= 84) {
+          'আপনার করোনা সংক্রামন হওয়ার সম্ভবনা খুব কম ।   Result: Your chances of getting a corona infection are very low';
+    } else if (resultScore <= 65) {
       resultText =
-      'আপনার করোনা সংক্রামন হওয়ার সম্ভবনা খুব বেশি,অতি শীগ্রই ডাক্তার এর চিকিৎসা নিন । Result: Your chances of getting a corona infection are very high, seek medical attention immediately.';
+          'আপনার করোনা সংক্রামন  হওয়ার সম্ভবনা খুব বেশি না তবে অবশ্যাই ৪৮ ঘন্টা পর্যবেক্ষণ এ থাকবেন। Result: Your coronary heart disease is not very likely to be, but of course, 48 hours of observation';
+    } else if (resultScore <= 74) {
+      resultText =
+          'আপনার করোনা সংক্রামন হওয়ার সম্ভবনা খুব বেশি,অতি শীগ্রই ডাক্তার এর চিকিৎসা নিন । Result: Your chances of getting a corona infection are very high, seek medical attention immediately.';
     } else {
       resultText =
-      'আপনার করোনা সংক্রামন হওয়ার সম্ভবনা খুব বেশি,অতি শীগ্রই ডাক্তার এর চিকিৎসা নিন ।  Result: আপনার করোনা সংক্রামন হওয়ার সম্ভবনা খুব বেশি,অতি শীগ্রই ডাক্তার এর চিকিৎসা নিন । ';
+          'আপনার করোনা সংক্রামন হওয়ার সম্ভবনা খুব বেশি,অতি শীগ্রই ডাক্তার এর চিকিৎসা নিন ।  Result: আপনার করোনা সংক্রামন হওয়ার সম্ভবনা খুব বেশি,অতি শীগ্রই ডাক্তার এর চিকিৎসা নিন । ';
     }
     return resultText;
   }
@@ -29,7 +30,7 @@ class Result extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Container(
-           color: Colors.red[400],
+            color: Colors.red[400],
             child: Text(
               resultPhrase,
               style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
@@ -53,7 +54,6 @@ class Result extends StatelessWidget {
             'assets/images/corona_banner.jpeg',
             height: 200,
             width: 800,
-
           ),
           RaisedButton(
             padding: EdgeInsets.all(8),
@@ -73,4 +73,3 @@ class Result extends StatelessWidget {
     );
   }
 }
-

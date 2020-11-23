@@ -57,7 +57,7 @@ class DocView extends StatelessWidget {
                     //UserAvatar(),
                     Image.asset(
                       'assets/images/apoinment.jpg',
-                       height: 60,
+                      height: 60,
                     ),
                     const SizedBox(height: 10),
                     // Text(
@@ -95,17 +95,8 @@ class DocView extends StatelessWidget {
                     const SizedBox(height: 10),
                     Image.asset(
                       'assets/images/chatwithdoctor.PNG', //apoinment
-                      height: 60,
-
+                      height: 80,
                     ),
-                    RoundedButton(
-                      label: 'Conversations',
-                      bgColor: Colors.deepPurple,
-                      onPressed: () {
-                        _conversationButtonPressed(context);
-                      },
-                    ),
-                    const SizedBox(height: 30),
 
                     RoundedButton(
                       label: 'Chat With Appointed Patients',
@@ -117,12 +108,19 @@ class DocView extends StatelessWidget {
                                 builder: (context) => ChatWithPatient()));
                       },
                     ),
+                    const SizedBox(height: 10),
+                    RoundedButton(
+                      label: 'Conversations',
+                      bgColor: Colors.deepPurple,
+                      onPressed: () {
+                        _conversationButtonPressed(context);
+                      },
+                    ),
                     const SizedBox(height: 30),
 
                     Image.asset(
                       'assets/images/healthproduct.png',
                       height: 60,
-
                     ),
 
                     RoundedButton(
@@ -132,7 +130,8 @@ class DocView extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => ProductsOverviewScreen()));
+                                builder: (context) =>
+                                    ProductsOverviewScreen()));
                       },
                     ),
                     const SizedBox(height: 30),

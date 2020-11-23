@@ -66,7 +66,7 @@ class _ChatScreenState extends State<ChatScreen> {
                 },
               ),
             ),
-            ChatInputWidget(receiver: widget.receiver.uid),
+            ChatInputWidget(receiver: widget.receiver.uid), //for input
           ],
         ),
       ),

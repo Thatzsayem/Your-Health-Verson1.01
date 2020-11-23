@@ -47,20 +47,23 @@ class _QuizPageState extends State<QuizPage> {
           //1
           'questionText': '1.আপনার বয়স কত?',
           'answers': [
-            {'text': 'a.0-20', 'score': 2},
+            {'text': 'a.0-20', 'score': 3},
             {'text': 'b.21-30', 'score': 2},
             {'text': 'c.31-40', 'score': 2},
             {'text': 'd.41-50', 'score': 3},
             {'text': 'e.51-65', 'score': 4},
-            {'text': 'f.65+  ', 'score': 5},
+            {'text': 'f.65+  ', 'score': 6},
           ]
         },
         {
           //2
           'questionText':
-          '2.দয়াকরে আপনার শরীরের বর্তমান তাপমাত্রা কত তা আমাদের জানান।',
+              '2.দয়াকরে আপনার শরীরের বর্তমান তাপমাত্রা কত তা আমাদের জানান।',
           'answers': [
-            {'text': 'a.শরীরের তাপমাত্রা স্বাভাবিক আছে 96°F-98.6°F   ', 'score': 2},
+            {
+              'text': 'a.শরীরের তাপমাত্রা স্বাভাবিক আছে 96°F-98.6°F   ',
+              'score': 2
+            },
             {'text': 'b.জ্বর 98.6°F-102°F', 'score': 3},
             {'text': 'c.অনেক জ্বর >102°F', 'score': 5},
           ]
@@ -84,7 +87,7 @@ class _QuizPageState extends State<QuizPage> {
         {
           //4
           'questionText':
-          ' 5.আপনার কি অতি দুর্বলতা (যেমনঃ বাথরুমে যেতে অন্যের সাহায্যের প্রয়োজন হয় এমন) এবং সর্দি বা নাক দিয়ে পানি পড়ার লক্ষন রয়েছে?',
+              ' 5.আপনার কি অতি দুর্বলতা (যেমনঃ বাথরুমে যেতে অন্যের সাহায্যের প্রয়োজন হয় এমন) এবং সর্দি বা নাক দিয়ে পানি পড়ার লক্ষন রয়েছে?',
           'answers': [
             {'text': 'a.হ্যাঁ', 'score': 5},
             {'text': 'b.না', 'score': 2},
@@ -109,7 +112,7 @@ class _QuizPageState extends State<QuizPage> {
         {
           //7
           'questionText':
-          '8.আপনার কি বুকে ব্যথা এবং চাপ অনুভব করা লক্ষন দেখা দিয়েছে??',
+              '8.আপনার কি বুকে ব্যথা এবং চাপ অনুভব করা লক্ষন দেখা দিয়েছে??',
           'answers': [
             {'text': 'a.হ্যাঁ', 'score': 5},
             {'text': 'b.না', 'score': 2},
@@ -125,7 +128,8 @@ class _QuizPageState extends State<QuizPage> {
         },
         {
           //9
-          'questionText': '10.আপনার কি নাকে গন্ধ না পাওয়া করা লক্ষন দেখা দিয়েছে?',
+          'questionText':
+              '10.আপনার কি নাকে গন্ধ না পাওয়া করা লক্ষন দেখা দিয়েছে?',
           'answers': [
             {'text': 'a.হ্যাঁ', 'score': 5},
             {'text': 'b.না', 'score': 2},
@@ -134,7 +138,7 @@ class _QuizPageState extends State<QuizPage> {
         {
           //10
           'questionText':
-          '11.আপনার কি চোখ চুলকানো বা লাল হয়ে যাওয়া লক্ষন দেখা দিয়েছে?',
+              '11.আপনার কি চোখ চুলকানো বা লাল হয়ে যাওয়া লক্ষন দেখা দিয়েছে?',
           'answers': [
             {'text': 'a.হ্যাঁ', 'score': 5},
             {'text': 'b.না', 'score': 2},
@@ -142,7 +146,8 @@ class _QuizPageState extends State<QuizPage> {
         },
         {
           //11
-          'questionText': '12.আপনার কি তন্দ্রাচ্ছন্নভাব(ঘুমে ব্যাঘাত) দেখা দিয়েছে?',
+          'questionText':
+              '12.আপনার কি তন্দ্রাচ্ছন্নভাব(ঘুমে ব্যাঘাত) দেখা দিয়েছে?',
           'answers': [
             {'text': 'a.হ্যাঁ', 'score': 5},
             {'text': 'b.না', 'score': 2},
@@ -173,7 +178,7 @@ class _QuizPageState extends State<QuizPage> {
         {
           //14
           'questionText':
-          '15.আপনি কি একজন স্বাস্থ্যকর্মী? (ডাক্তার, নার্স,    সহায়ককর্মী , অথবা সমাজের কোনে কাজে থাকা ইত্যাদি)',
+              '15.আপনি কি একজন স্বাস্থ্যকর্মী? (ডাক্তার, নার্স,    সহায়ককর্মী , অথবা সমাজের কোনে কাজে থাকা ইত্যাদি)',
           'answers': [
             {'text': 'a.হ্যাঁ', 'score': 5},
             {'text': 'b.না', 'score': 2},
@@ -195,22 +200,22 @@ class _QuizPageState extends State<QuizPage> {
           'answers': [
             {
               'text':
-              'a. গত ১৪ দিনের মধ্যে কোথাও ভ্রমণ করি নাই অথবা করোনা আক্রান্ত কিংবা জ্বর, কাশি, শ্বাসকষ্ট আছে এমন কারো কাছাকাছি যাই নাই',
+                  'a. গত ১৪ দিনের মধ্যে কোথাও ভ্রমণ করি নাই অথবা করোনা আক্রান্ত কিংবা জ্বর, কাশি, শ্বাসকষ্ট আছে এমন কারো কাছাকাছি যাই নাই',
               'score': 2
             },
             {
               'text':
-              'b. গত ১৪ দিনের মধ্যে জ্বর, কাশি, শ্বাসকষ্ট আছে এমন কারো সংস্পর্শে গিয়েছিলাম (যেমনঃ পরিবার সদস্য / সহকর্মী)',
+                  'b. গত ১৪ দিনের মধ্যে জ্বর, কাশি, শ্বাসকষ্ট আছে এমন কারো সংস্পর্শে গিয়েছিলাম (যেমনঃ পরিবার সদস্য / সহকর্মী)',
               'score': 3
             },
             {
               'text':
-              'c. গত ১৪ দিনের মধ্যে বিদেশ থেকে ফিরেছে      এমন কারো সংস্পর্শে গিয়েছিলাম',
-              'score': 5
+                  'c. গত ১৪ দিনের মধ্যে বিদেশ থেকে ফিরেছে      এমন কারো সংস্পর্শে গিয়েছিলাম',
+              'score': 7
             },
             {
               'text':
-              'd. গত ১৪ দিনের মধ্যে করোনা ভাইরাসে আক্রান্ত এলাকা বা বিদেশে ভ্রমণ করেছিগত ১৪ দিনের মধ্যে করোনা ভাইরাসে আক্রান্ত ব্যক্তির সংস্পর্শে  গিয়েছিলাম',
+                  'd. গত ১৪ দিনের মধ্যে করোনা ভাইরাসে আক্রান্ত এলাকা বা বিদেশে ভ্রমণ করেছিগত ১৪ দিনের মধ্যে করোনা ভাইরাসে আক্রান্ত ব্যক্তির সংস্পর্শে  গিয়েছিলাম',
               'score': 10
             },
           ]
@@ -303,7 +308,8 @@ class _QuizPageState extends State<QuizPage> {
         },
         {
           //10
-          'questionText': '10. DO you have the symptoms of not being able to smell your nose?',
+          'questionText':
+              '10. DO you have the symptoms of not being able to smell your nose?',
           'answers': [
             {'text': 'a.Yes', 'score': 5},
             {'text': 'b.No', 'score': 2},
@@ -325,7 +331,6 @@ class _QuizPageState extends State<QuizPage> {
             {'text': 'b.No', 'score': 2},
           ]
         },
-
         {
           //13
           'questionText': '13.Do you already have these diseases?',
@@ -337,7 +342,10 @@ class _QuizPageState extends State<QuizPage> {
             {'text': 'e.Kidney Problem', 'score': 2},
             {'text': 'f.Cancer', 'score': 2},
             {'text': 'g. Many Other Diseases', 'score': 2},
-            {'text': 'h.None', 'score': 2,}
+            {
+              'text': 'h.None',
+              'score': 2,
+            }
           ]
         },
         {
@@ -370,7 +378,7 @@ class _QuizPageState extends State<QuizPage> {
         },
         {
           //17
-          'questionText': '16. Give your travel information.',
+          'questionText': '17. Give your travel information.',
           'answers': [
             {
               'text':
@@ -380,17 +388,17 @@ class _QuizPageState extends State<QuizPage> {
             {
               'text':
                   'In the last 14 days I have been in contact with someone who has a fever, cough, or shortness of breath (e.g. family members / co-workers).',
-              'score': 3
+              'score': 8
             },
             {
               'text':
                   'c. In the last 14 days, I came in contact with someone who has returned from abroad',
-              'score': 5
+              'score': 20
             },
             {
               'text':
                   'd. In the last 14 days, I have traveled to areas infected with corona virus or people came from abroad.',
-              'score': 10
+              'score': 40
             },
           ]
         },

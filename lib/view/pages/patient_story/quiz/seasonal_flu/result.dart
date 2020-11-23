@@ -11,10 +11,11 @@ class Result extends StatelessWidget {
     if (resultScore <= 10) {
       resultText = 'Result: You are not affected with Flu.';
     } else if (resultScore <= 13) {
-      resultText = 'Result: You have minor chances of affected with Flu.';
+      resultText =
+          'Result: You have Probably minor chances of affected with Flu.';
     } else {
       resultText =
-      'Result: You affected with Flu , try to consult with doctor as soon as possible.';
+          'Result: You are probably affected with Flu , try to consult with doctor as soon as possible.';
     }
     return resultText;
   }
@@ -47,9 +48,7 @@ class Result extends StatelessWidget {
           Image.asset(
             'assets/images/flu.png',
             height: 400,
-
           ),
-
           RaisedButton(
             padding: EdgeInsets.all(8),
             color: Colors.blue,

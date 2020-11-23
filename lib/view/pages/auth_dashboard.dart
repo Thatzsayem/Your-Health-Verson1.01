@@ -43,7 +43,6 @@ class AuthDashboardPage extends StatelessWidget {
                 Image.asset(
                   'assets/images/yourhealth_mainlogo.jpg',
                   height: 400,
-
                 ),
                 const SizedBox(height: 30),
                 RoundedButton(
@@ -58,16 +57,16 @@ class AuthDashboardPage extends StatelessWidget {
                   onPressed: () => onRegisterPressed(context),
                 ),
                 const SizedBox(height: 20),
-                // RoundedButton(
-                //   label: "Admin Login",
-                //   bgColor: Colors.redAccent,
-                //   onPressed: () {
-                //     Navigator.push(
-                //         context,
-                //         MaterialPageRoute(
-                //             builder: (context) => AdminLoginPage()));
-                //   },
-                // ),
+                RoundedButton(
+                  label: "Admin Login",
+                  bgColor: Colors.redAccent,
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => AdminLoginPage()));
+                  },
+                ),
                 const Spacer()
               ],
             ),

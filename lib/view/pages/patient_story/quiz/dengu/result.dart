@@ -9,12 +9,13 @@ class Result extends StatelessWidget {
   String get resultPhrase {
     String resultText;
     if (resultScore <= 12) {
-      resultText = 'Result: You are not affected with Dengu.';
+      resultText = 'Result: Probably You are not affected with Dengu.';
     } else if (resultScore <= 15) {
-      resultText = 'Result: You have minor chances of affected with Dengu.   ';
+      resultText =
+          'Result: You have probably minor chances of affected with Dengu.   ';
     } else {
       resultText =
-      'Result: You affected with Dengu , try to consult with doctor as soon as possible .';
+          'Result: You are probably affected with Dengu , try to consult with doctor as soon as possible .';
     }
     return resultText;
   }
@@ -47,9 +48,7 @@ class Result extends StatelessWidget {
           Image.asset(
             'assets/images/dengu.jpg',
             height: 400,
-
           ),
-
           RaisedButton(
             padding: EdgeInsets.all(8),
             color: Colors.blue,
