@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:yourhealth/data/services/auth_services.dart';
 import 'package:yourhealth/view/email_confirm.dart';
-
+//import 'package:intl/intl.dart';
 import '../widgets/widgets.dart';
+import 'package:time_range/time_range.dart';
 
 class SignUpDoctorPage extends StatefulWidget {
   @override
@@ -44,6 +45,32 @@ class _SignUpDoctorPageState extends State<SignUpDoctorPage> {
     'Surgery',
     'Urology'
   ];
+  //time picker
+
+  // String _setTime, _setDate;
+  // String _hour, _minute, _time;
+  // String dateTime;
+  // TimeOfDay _selectedTime = TimeOfDay(hour: 00, minute: 00);
+  // TextEditingController _dateController = TextEditingController();
+  // TextEditingController _timeController = TextEditingController();
+
+  //time range
+  static const orange = Color(0xFFFE9A75);
+  static const dark = Color(0xFF333A47);
+  static const double leftPadding = 50;
+
+  final _defaultTimeRange = TimeRangeResult(
+    TimeOfDay(hour: 14, minute: 50),
+    TimeOfDay(hour: 15, minute: 20),
+  );
+  TimeRangeResult _timeRange;
+
+  @override
+  void initState() {
+    super.initState();
+    _timeRange = _defaultTimeRange;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -167,18 +194,87 @@ class _SignUpDoctorPageState extends State<SignUpDoctorPage> {
                           border: Border.all(color: Colors.grey),
                           borderRadius: BorderRadius.circular(5),
                         ),
-                        child: TextFormField(
-                          validator: (value) => value.isEmpty
-                              ? 'Please enter your visiting hour'
-                              : null,
-                          onChanged: (val) {
-                            setState(() => _visitingHour = val);
-                          },
-                          decoration: const InputDecoration(
-                            border: InputBorder.none,
-                            labelText: 'Visiting Hour',
-                          ),
-                        ),
+                        child: FlatButton(
+                            child: Text('Select Visiting Hour'),
+                            onPressed: () {
+                              //_selectTime(context);
+                              showDialog<void>(
+                                context: context,
+                                barrierDismissible:
+                                    false, // user must tap button!
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    title: Text('Select Doctor Visiting Hour'),
+                                    content: SingleChildScrollView(
+                                      child: Container(
+                                        width: 400,
+                                        height: 400,
+                                        child: TimeRange(
+                                          fromTitle: Text(
+                                            'FROM',
+                                            style: TextStyle(
+                                              fontSize: 14,
+                                              color: dark,
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                          ),
+                                          toTitle: Text(
+                                            'TO',
+                                            style: TextStyle(
+                                              fontSize: 14,
+                                              color: dark,
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                          ),
+                                          titlePadding: leftPadding,
+                                          textStyle: TextStyle(
+                                            fontWeight: FontWeight.normal,
+                                            color: dark,
+                                          ),
+                                          activeTextStyle: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            color: orange,
+                                          ),
+                                          borderColor: dark,
+                                          activeBorderColor: dark,
+                                          backgroundColor: Colors.transparent,
+                                          activeBackgroundColor: dark,
+                                          firstTime:
+                                              TimeOfDay(hour: 8, minute: 00),
+                                          lastTime:
+                                              TimeOfDay(hour: 20, minute: 00),
+                                          initialRange: _timeRange,
+                                          timeStep: 10,
+                                          timeBlock: 30,
+                                          onRangeCompleted: (range) => setState(
+                                              () => _timeRange = range),
+                                        ),
+                                      ),
+                                    ),
+                                    actions: <Widget>[
+                                      TextButton(
+                                        child: Text('Approve'),
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+                                        },
+                                      ),
+                                    ],
+                                  );
+                                },
+                              );
+                            }),
+                        // child: TextFormField(
+                        //   validator: (value) => value.isEmpty
+                        //       ? 'Please enter your visiting hour'
+                        //       : null,
+                        //   onChanged: (val) {
+                        //     setState(() => _visitingHour = val);
+                        //   },
+                        //   decoration: const InputDecoration(
+                        //     border: InputBorder.none,
+                        //     labelText: 'Visiting Hour',
+                        //   ),
+                        // ),
                       ),
                     ),
                     SizedBox(width: 5),
@@ -205,6 +301,29 @@ class _SignUpDoctorPageState extends State<SignUpDoctorPage> {
                     ),
                   ],
                 ),
+
+                const SizedBox(height: 30),
+                Container(
+                  padding: EdgeInsets.only(left: 10),
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.grey),
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  child: TextFormField(
+                    validator: (value) => value.isEmpty
+                        ? 'Please enter your chamber location'
+                        : null,
+                    onChanged: (val) {
+                      setState(() => _location = val);
+                    },
+                    decoration: const InputDecoration(
+                      border: InputBorder.none,
+                      labelText: 'Chamber Location',
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 30),
+
                 const SizedBox(height: 30),
                 Container(
                   padding: EdgeInsets.only(left: 10),
@@ -449,4 +568,23 @@ class _SignUpDoctorPageState extends State<SignUpDoctorPage> {
       }
     }
   }
+
+  // _selectTime(BuildContext context) async {
+  //   final TimeOfDay picked = await showTimePicker(
+  //     context: context,
+  //     initialTime: _selectedTime,
+  //   );
+  //   if (picked != null)
+  //     setState(() {
+  //       _selectedTime = picked;
+  //       _hour = _selectedTime.hour.toString();
+  //       _minute = _selectedTime.minute.toString();
+  //       _time = _hour + ' : ' + _minute;
+  //       _timeController.text = _selectedTime.format(context);
+  //       //_timeController.text = _selectedTime.toString();
+  //       // formatDate(
+  //       //     DateTime(2019, 08, 1, selectedTime.hour, selectedTime.minute),
+  //       //     [hh, ':', nn, " ", am]).toString();
+  //     });
+  // }
 }

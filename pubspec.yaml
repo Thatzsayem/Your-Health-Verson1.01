@@ -39,11 +39,12 @@ dependencies:
   firebase_storage: ^4.0.1
   image_picker: ^0.6.7+12
   google_sign_in: ^4.4.4
+  time_range: ^0.5.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  change_app_package_name: ^0.1.2
+  #change_app_package_name: ^0.1.2
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 # The following section is specific to Flutter.
